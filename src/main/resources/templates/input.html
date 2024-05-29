@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View</title>
+<link rel="stylesheet" href="/plugin/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/plugin/css/dataTables/dataTables.min.css">
+<script src="/plugin/js/jquery/jquery.min.js"></script>
+<script src="/plugin/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/plugin/js/dataTables/dataTables.min.js"></script>
+<script src="/view/js/input.js"></script>
+</head>
+<body>
+	<div>
+		<div class="container">
+			<h4>INPUT</h4>
+			<form id="frmSubmit" action="#" th:action="@{/insertOrUpdate}" method="post" th:object="${user}">
+			<div class="row">
+				<input class="form-control" type="hidden" th:field="*{id}" /><br/>
+				<div class="col-md-4">
+					<label>Name :</label>
+					<input class="form-control" type="text" th:field="*{name}" /><br/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<label>Address :</label>
+					<input class="form-control" type="text" th:field="*{address}" /><br/>
+				</div>
+			</div>
+			<button type="submit" id="btn-submit" class="btn btn-primary">Submit</button>
+			<a class="btn btn-secondary" href="/view">View</a>	
+			<a class="btn btn-secondary" href="/index">Home</a>	
+			</form>
+		</div>
+	</div>
+</body>
+</html>

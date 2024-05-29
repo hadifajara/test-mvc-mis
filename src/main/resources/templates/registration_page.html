@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Spring Boot Form Demo</title>
+<link rel="stylesheet" href="/plugin/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/plugin/css/dataTables/dataTables.min.css">
+<script src="/plugin/js/jquery/jquery.min.js"></script>
+<script src="/plugin/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/plugin/js/dataTables/dataTables.min.js"></script>
+<script src="/view/js/view.js"></script>
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div class="col-md-12" align="center">
+			<h2 class="mb-4">Registration</h2>
+		</div>
+		<section class="pb-4">
+  <div class="border rounded-5">
+    
+    <section class="w-100 p-4 d-flex justify-content-center pb-4">
+      <form style="width: 22rem;" th:action="@{/register}" method="post">
+
+        <div data-mdb-input-init class="form-outline mb-4">
+			<label class="form-label" for="form2Example1">Username</label>
+          <input type="text" name="username" class="form-control" />
+        </div>
+
+        <!-- Password input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+			<label class="form-label" for="form2Example2">Password</label>
+          <input type="password" name="password" class="form-control" />
+        </div>
+
+        <!-- Submit button -->
+        <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Submit</button>
+		
+		<div class="text-center" th:if="${param.success}">
+		    <p>You successfully registered. Please use your credentials to log in.</p>
+		</div>
+		<div class="text-center" th:if="${param.exist}">
+		    <p>Username already exist.</p>
+		</div>
+
+      </form>
+    </section>
+	</div>
+</body>
+</html>

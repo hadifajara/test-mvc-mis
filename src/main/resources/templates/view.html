@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View</title>
+<link rel="stylesheet" href="/plugin/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="/plugin/css/dataTables/dataTables.min.css">
+<script src="/plugin/js/jquery/jquery.min.js"></script>
+<script src="/plugin/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/plugin/js/dataTables/dataTables.min.js"></script>
+<script src="/view/js/view.js"></script>
+</head>
+<body>
+	<div>
+		<div class="container">
+			<h4>VIEW</h4>
+			<div class="row">
+				<table id="tblView" class="display">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Address</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user : ${users}">
+							<td th:text="${user.name}"></td>
+							<td th:text="${user.address}"></td>
+							<td>
+								<a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-secondary btn-edit">Edit</a>
+								<a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-secondary btn-delete">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				<table>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<a class="btn btn-secondary" href="/input">Input</a>
+					<a class="btn btn-secondary" href="/">Home</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
